@@ -1,0 +1,98 @@
+{
+  "app": "superset",
+  "entrypoints": {
+    "preamble": {
+      "css": [],
+      "js": [
+        "/static/assets/vendors.f49c7428.entry.js",
+        "/static/assets/preamble.2846df46.entry.js"
+      ]
+    },
+    "theme": {
+      "css": [],
+      "js": [
+        "/static/assets/theme.816900c5.entry.js"
+      ]
+    },
+    "menu": {
+      "css": [],
+      "js": [
+        "/static/assets/vendors.f49c7428.entry.js",
+        "/static/assets/vendors-node_modules_ctrl_tinycolor_dist_module_index_js-node_modules_ansi-html-community_ind-9ca1c8.78287ed4.entry.js",
+        "/static/assets/vendors-node_modules_ace-builds_src-noconflict_ace_js-node_modules_json-bigint_index_js-node_-98c7dc.833998be.entry.js",
+        "/static/assets/node_modules_ace-builds_src-noconflict_ext-split_js-src_dashboard_actions_hydrate_js-node_mod-eed790.4dd7b5be.entry.js",
+        "/static/assets/menu.86ddc7d4.entry.js"
+      ]
+    },
+    "spa": {
+      "css": [],
+      "js": [
+        "/static/assets/vendors.f49c7428.entry.js",
+        "/static/assets/vendors-node_modules_ctrl_tinycolor_dist_module_index_js-node_modules_ansi-html-community_ind-9ca1c8.78287ed4.entry.js",
+        "/static/assets/vendors-node_modules_ace-builds_src-noconflict_ace_js-node_modules_json-bigint_index_js-node_-98c7dc.833998be.entry.js",
+        "/static/assets/node_modules_ace-builds_src-noconflict_ext-split_js-src_dashboard_actions_hydrate_js-node_mod-eed790.4dd7b5be.entry.js",
+        "/static/assets/spa.156807df.entry.js"
+      ]
+    },
+    "embedded": {
+      "css": [],
+      "js": [
+        "/static/assets/vendors.f49c7428.entry.js",
+        "/static/assets/vendors-node_modules_ctrl_tinycolor_dist_module_index_js-node_modules_ansi-html-community_ind-9ca1c8.78287ed4.entry.js",
+        "/static/assets/vendors-node_modules_ace-builds_src-noconflict_ace_js-node_modules_json-bigint_index_js-node_-98c7dc.833998be.entry.js",
+        "/static/assets/node_modules_ace-builds_src-noconflict_ext-split_js-src_dashboard_actions_hydrate_js-node_mod-eed790.4dd7b5be.entry.js",
+        "/static/assets/embedded.805bbfea.entry.js"
+      ]
+    },
+    "addSlice": {
+      "css": [],
+      "js": [
+        "/static/assets/vendors.f49c7428.entry.js",
+        "/static/assets/thumbnail.32393e25.entry.js",
+        "/static/assets/vendors-node_modules_ctrl_tinycolor_dist_module_index_js-node_modules_ansi-html-community_ind-9ca1c8.78287ed4.entry.js",
+        "/static/assets/vendors-node_modules_ace-builds_src-noconflict_ace_js-node_modules_json-bigint_index_js-node_-98c7dc.833998be.entry.js",
+        "/static/assets/vendors-node_modules_superset-ui_legacy-plugin-chart-map-box_esm_index_js-node_modules_ace-bu-13d192.7834bd16.entry.js",
+        "/static/assets/src_setup_setupPlugins_ts.ac6cac10.entry.js",
+        "/static/assets/node_modules_ace-builds_src-noconflict_ext-split_js-src_dashboard_actions_hydrate_js-node_mod-eed790.4dd7b5be.entry.js",
+        "/static/assets/addSlice.16999163.entry.js"
+      ]
+    },
+    "explore": {
+      "css": [],
+      "js": [
+        "/static/assets/vendors.f49c7428.entry.js",
+        "/static/assets/thumbnail.32393e25.entry.js",
+        "/static/assets/vendors-node_modules_ctrl_tinycolor_dist_module_index_js-node_modules_ansi-html-community_ind-9ca1c8.78287ed4.entry.js",
+        "/static/assets/vendors-node_modules_ace-builds_src-noconflict_ace_js-node_modules_json-bigint_index_js-node_-98c7dc.833998be.entry.js",
+        "/static/assets/vendors-node_modules_superset-ui_legacy-plugin-chart-map-box_esm_index_js-node_modules_ace-bu-13d192.7834bd16.entry.js",
+        "/static/assets/src_setup_setupPlugins_ts.ac6cac10.entry.js",
+        "/static/assets/node_modules_ace-builds_src-noconflict_ext-split_js-src_dashboard_actions_hydrate_js-node_mod-eed790.4dd7b5be.entry.js",
+        "/static/assets/explore.3e74d1ab.entry.js"
+      ]
+    },
+    "sqllab": {
+      "css": [],
+      "js": [
+        "/static/assets/vendors.f49c7428.entry.js",
+        "/static/assets/vendors-node_modules_ctrl_tinycolor_dist_module_index_js-node_modules_ansi-html-community_ind-9ca1c8.78287ed4.entry.js",
+        "/static/assets/vendors-node_modules_ace-builds_src-noconflict_ace_js-node_modules_json-bigint_index_js-node_-98c7dc.833998be.entry.js",
+        "/static/assets/sqllab.21e54438.entry.js"
+      ]
+    },
+    "profile": {
+      "css": [],
+      "js": [
+        "/static/assets/vendors.f49c7428.entry.js",
+        "/static/assets/vendors-node_modules_ctrl_tinycolor_dist_module_index_js-node_modules_ansi-html-community_ind-9ca1c8.78287ed4.entry.js",
+        "/static/assets/profile.b4155c75.entry.js"
+      ]
+    },
+    "showSavedQuery": {
+      "css": [],
+      "js": [
+        "/static/assets/vendors.f49c7428.entry.js",
+        "/static/assets/showSavedQuery.d2997c1f.entry.js"
+      ]
+    }
+  }
+}
