@@ -79,6 +79,27 @@ CACHE_CONFIG = {
 }
 DATA_CACHE_CONFIG = CACHE_CONFIG
 
+#------------------#############################
+GLOBAL_ASYNC_QUERIES_REDIS_CONFIG = {
+    "port": get_env_variable("REDIS_PORT"),
+    "host": get_env_variable("REDIS_HOST"),
+    "password": get_env_variable("REDIS_PW"),
+    "db": 2,
+    "ssl": False,
+}
+GLOBAL_ASYNC_QUERIES_REDIS_STREAM_PREFIX = "async-events-"
+GLOBAL_ASYNC_QUERIES_REDIS_STREAM_LIMIT = 1000
+GLOBAL_ASYNC_QUERIES_REDIS_STREAM_LIMIT_FIREHOSE = 1000000
+GLOBAL_ASYNC_QUERIES_JWT_COOKIE_NAME = "async-token"
+GLOBAL_ASYNC_QUERIES_JWT_COOKIE_SECURE = False
+GLOBAL_ASYNC_QUERIES_JWT_COOKIE_DOMAIN = None
+GLOBAL_ASYNC_QUERIES_JWT_SECRET = "test-secret-change-mtest-secret-change-meetest-secret-change-me"
+# GLOBAL_ASYNC_QUERIES_TRANSPORT = "websocket"
+GLOBAL_ASYNC_QUERIES_TRANSPORT = "polling"
+GLOBAL_ASYNC_QUERIES_POLLING_DELAY = int(
+    timedelta(milliseconds=500).total_seconds() * 1000
+)
+###############
 
 class CeleryConfig(object):
     broker_url = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_CELERY_DB}"
@@ -100,14 +121,10 @@ class CeleryConfig(object):
 
 CELERY_CONFIG = CeleryConfig
 
-FEATURE_FLAGS = {"ALERT_REPORTS": True}
-ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
-WEBDRIVER_BASEURL = "http://superset:8088/"
-# The base URL for the email report hyperlinks.
-WEBDRIVER_BASEURL_USER_FRIENDLY = WEBDRIVER_BASEURL
 
-SQLLAB_CTAS_NO_LIMIT = True
-
+# 
+# SUPERSET_WEBSERVER_DOMAINS = {}
+# SSH_TUNNELING = True
 #
 # Optionally import superset_config_docker.py (which will have been included on
 # the PYTHONPATH) in order to allow for local settings to be overridden
@@ -121,3 +138,4 @@ try:
     )
 except ImportError:
     logger.info("Using default Docker config...")
+

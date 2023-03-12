@@ -1,54 +1,29 @@
-#
-# Licensed to the Apache Software Foundation (ASF) under one or more
-# contributor license agreements.  See the NOTICE file distributed with
-# this work for additional information regarding copyright ownership.
-# The ASF licenses this file to You under the Apache License, Version 2.0
-# (the "License"); you may not use this file except in compliance with
-# the License.  You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
 x-superset-image: &superset-image apache/superset:2.0.1
 x-superset-depends-on: &superset-depends-on
-  - db
   - redis
+
 x-superset-volumes: &superset-volumes
-  # /app/pythonpath_docker will be appended to the PYTHONPATH in the final container
   - ./docker:/app/docker
-  - superset_home_nista:/app/superset_home
-  - ./_custom/assets_prod:/app/superset/static/assets
-x-estag-networks: &superset-networks
-  - estag_ss
+  - ./volumes/superset_home_nista:/app/superset_home
+
+x-superset-networks: &superset-networks
+  - nista_net 
 
 version: "3.7"
 services:
+
   redis:
     image: redis:7
-    container_name: superset_cache
+    container_name: nista_superset_cache
     restart: unless-stopped
     volumes:
       - redis:/data
     networks: *superset-networks
 
-  db:
-    env_file: docker/.env-non-dev
-    image: postgres:14
-    container_name: superset_db
-    restart: unless-stopped
-    volumes:
-      - db_home_nista:/var/lib/postgresql/data
-    networks: *superset-networks
-
   superset:
-    env_file: docker/.env-non-dev
+    env_file: docker/.env
     image: *superset-image
-    container_name: superset_app
+    container_name: nista_superset_app
     command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
     user: "root"
     restart: unless-stopped
@@ -60,9 +35,9 @@ services:
 
   superset-init:
     image: *superset-image
-    container_name: superset_init
+    container_name: nista_superset_init
     command: ["/app/docker/docker-init.sh"]
-    env_file: docker/.env-non-dev
+    env_file: docker/.env
     depends_on: *superset-depends-on
     user: "root"
     volumes: *superset-volumes
@@ -72,9 +47,9 @@ services:
 
   superset-worker:
     image: *superset-image
-    container_name: superset_worker
+    container_name: nista_superset_worker
     command: ["/app/docker/docker-bootstrap.sh", "worker"]
-    env_file: docker/.env-non-dev
+    env_file: docker/.env
     restart: unless-stopped
     depends_on: *superset-depends-on
     user: "root"
@@ -85,9 +60,9 @@ services:
 
   superset-worker-beat:
     image: *superset-image
-    container_name: superset_worker_beat
+    container_name: nista_superset_worker_beat
     command: ["/app/docker/docker-bootstrap.sh", "beat"]
-    env_file: docker/.env-non-dev
+    env_file: docker/.env
     restart: unless-stopped
     depends_on: *superset-depends-on
     user: "root"
@@ -103,11 +78,9 @@ volumes:
     external: true
   redis:
     external: false
-x-estag-networks: &estag-networks
-  - estag_ss
 
 networks:
-  estag_ss:
+  nista_net:
     external: true
 
 
